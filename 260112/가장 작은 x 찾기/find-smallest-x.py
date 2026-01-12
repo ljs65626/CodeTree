@@ -13,18 +13,18 @@ ranges = [tuple(map(int, input().split())) for _ in range(n)]
 #         if i<a[j] or i>b[j]:
 #             i*=2
 
+
+def satisfied(x):
+    for a, b in ranges:
+        x*=2
+        if x<a or x>b:
+            return False
+    return True
+
 ans=sys.maxsize
 for i in range(1, 10001):
-    is_satisfied=True
-    cnt=1
-    for a, b in ranges:
-        if i*2**cnt<a or i>b*2**cnt:
-            is_satisfied=False
-            break
-        cnt+=1
-        
-    if is_satisfied:
-        ans=min(i, ans)
+    if satisfied(i):
+        ans = min(ans, i)
 
 print(ans)
 
