@@ -6,7 +6,7 @@ arr = list(map(int, input().split()))
 max_val = max(arr)
 
 ans=sys.maxsize
-def its_possible(i):
+def is_possible(i):
     indexes=list()
     for j, elem in enumerate(arr):
         if elem<=i:
@@ -22,8 +22,8 @@ def its_possible(i):
     
     return True
 
-for i in range(max(arr[1], arr[n-1]), max_val+1):
-    if its_possible(i):
+for i in range(max(arr[0], arr[n-1]), max_val+1):
+    if is_possible(i):
         # print(i)
         ans = min(ans, i)
 
