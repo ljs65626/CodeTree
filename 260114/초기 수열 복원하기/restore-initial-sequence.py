@@ -7,6 +7,8 @@ for i in range(1, n+1):
     arr=list()
     arr.append(i)
     for j in range(n-1):
+        if abs(adjacent[j]-arr[j])==0:
+            break
         arr.append(abs(adjacent[j]-arr[j]))
     arr = set(arr)
     if len(arr)==n:
