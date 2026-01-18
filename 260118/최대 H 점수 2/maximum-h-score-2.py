@@ -11,14 +11,13 @@ for h in range(1, 101):
         if arr[i]+1==h and L>0:
             L-=1
             copy[i] += 1
-    for i in range(N):
-        cnt=0
-        condition_h = 0
-        for j in range(N):
-            if copy[i]<=copy[j]:
-                cnt+=1
-        if cnt>=copy[i]:
-            condition_h=copy[i]
-        ans = max(ans, condition_h)
+    cnt=0
+    condition_h = 0
+    for j in range(N):
+        if h<=copy[j]:
+            cnt+=1
+    if cnt>=h:
+        ans = max(ans, h)
+    # print(ans, end=' ')
 
 print(ans)
