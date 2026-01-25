@@ -5,9 +5,10 @@ segments = [tuple(map(int, input().split())) for _ in range(n)]
 # x2 = [seg[1] for seg in segments]
 
 # Please write your code here.
-maxx = -sys.maxsize
-miny = sys.maxsize
+
 for i in range(n):
+    maxx = -sys.maxsize
+    miny = sys.maxsize
     for j in range(n):
         if i==j:
             continue
