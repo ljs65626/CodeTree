@@ -16,9 +16,9 @@ for i in range(n):
         maxx = max(maxx, x)
         miny = min(miny, y)
     
-        if maxx<=miny:
-            print('Yes')
-            sys.exit()
+    if maxx<=miny:
+        print('Yes')
+        sys.exit()
 
 
 print('No')
