@@ -10,16 +10,22 @@ for _ in range(n):
     start+=1
 is_read = [False] * n
 
+target_c, target_u = message[p-1]
+target_u = int(target_u)
+for i in range(p-1, -1, -1):
+    c, u = message[i]
+    u=int(u)
+    if u!=target_u:
+        break
+    is_read[programers.index(c)] = True
+
+
 for i, (c, u) in enumerate(message, start=1):
     u = int(u)
     if i>=p:
         if p==i and u==0:
             sys.exit()
-        if before==u:
-            is_read[programers.index(before_alpha)] = True
         is_read[programers.index(c)] = True
-    before = u
-    before_alpha = c
 
 
 for i in range(n):
