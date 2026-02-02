@@ -1,12 +1,13 @@
-a,b,c = tuple(map(int, input().split()))
-
+pos = list(map(int, input().split()))
+pos.sort()
 # Please write your code here.
 
-if b-a==1 and c-b==1:
+if (pos[1]-pos[0])==1 and (pos[2]-pos[1])==1:
     ans=0
-elif (b-a==2) or (c-b==2):
+elif (pos[1]-pos[0]==2) or (pos[2]-pos[1]==2):
     ans=1
 else:
     ans=2
 
 print(ans)
+
