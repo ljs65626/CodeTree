@@ -12,7 +12,7 @@ cnt12=0
 cnt21=0
 cnt22=0
 cnt31=0
-cn
+cnt32=0
 for a, b in moves:
     if (a==1 and b==3) or (a==3 and b==2) or (a==2 and b==1):
         cnt11+=1
