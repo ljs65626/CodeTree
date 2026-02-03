@@ -56,6 +56,7 @@ if diff!=-1:
         elif seats[i]==1:
             diff = i-before
             mindiff3 = min(mindiff3, diff)
+            before=i
     ans = max(mindiff3, ans)
 
 print(ans)
