@@ -28,7 +28,7 @@ if seats[-1]==0:
             diff = i-before
             before=i
             mindiff2 = min(diff, mindiff2)
-    seats[-1]==0
+    seats[-1]=0
     ans = max(ans, mindiff2)
 
 before=-1
