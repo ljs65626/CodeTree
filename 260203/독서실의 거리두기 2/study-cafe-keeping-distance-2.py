@@ -4,9 +4,9 @@ seats = list(map(int, list(input())))
 
 # Please write your code here.
 
-
-mindiff1 = sys.maxsize
+ans = -sys.maxsize
 if seats[0]==0:
+    mindiff1 = sys.maxsize
     seats[0]==1
     before=0
     for i in range(1, N):
@@ -15,9 +15,10 @@ if seats[0]==0:
             before = i
             mindiff1 = min(diff, mindiff1)
     seats[0]==0
+    ans = max(mindiff1, ans)
 
-mindiff2 = sys.maxsize
 if seats[-1]==0:
+    mindiff2 = sys.maxsize
     seats[-1]=1
     before=-1
     for i in range(N):
@@ -28,6 +29,7 @@ if seats[-1]==0:
             before=i
             mindiff2 = min(diff, mindiff2)
     seats[-1]==0
+    ans = max(ans, mindiff2)
 
 before=-1
 maxdiff = -sys.maxsize
@@ -40,10 +42,12 @@ for i in range(N):
         if diff>maxdiff:
             maxi = i
             maxbefore = before
+            maxdiff = diff
         before=i
 
-mindiff3 = sys.maxsize
+
 if diff!=-1:
+    mindiff3 = sys.maxsize
     seats[(maxi+maxbefore)//2]=1
     before=-1
     for i in range(N):
@@ -52,6 +56,6 @@ if diff!=-1:
         elif seats[i]==1:
             diff = i-before
             mindiff3 = min(mindiff3, diff)
+    ans = max(mindiff3, ans)
 
-
-print(max(mindiff1, mindiff2, mindiff3))
+print(ans)
