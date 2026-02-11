@@ -13,7 +13,7 @@ for i in range(10):
             ri=i
             rj=j
 
-if (bi==li==ri and (bi<ri<li or li<ri<bi)) or (bj==lj==rj and (bj<rj<lj or lj<rj<bj)):
+if (bi==li==ri and (bj<rj<lj or lj<rj<bj)) or (bj==lj==rj and (bi<ri<li or li<ri<bi)):
     print((abs(bi-li)+abs(bj-lj)-1)+2)
 else:
     print(abs(bi-li)+abs(bj-lj)-1)
