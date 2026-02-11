@@ -9,5 +9,8 @@ for i in range(1, n):
         if a[i]<second_min:
             second_min = a[i]
             second_index=i+1
+    elif a[i] < a[0]:
+        second_index=-1
+        break
 
 print(second_index)
