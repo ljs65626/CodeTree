@@ -50,7 +50,7 @@ def get_status(score1, score2, score3):
         score+=2
     
     if maxval==score3:
-        score+=3
+        score+=4
     
     return score
 
