@@ -10,14 +10,12 @@ ans=0
 for c, s in status:
     s = int(s)
     before=current
-    before_maxval = 
     if c=='A':
         A+=s
     elif c=='B':
         B+=s
     else:
         C+=s
-    max_val = max(A, B, C)
     if A==B==C:
         current=0
     elif A==B and A>C:
