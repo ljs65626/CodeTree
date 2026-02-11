@@ -10,13 +10,14 @@ ans=0
 for c, s in status:
     s = int(s)
     before=current
+    before_maxval = 
     if c=='A':
         A+=s
     elif c=='B':
         B+=s
     else:
         C+=s
-    
+    max_val = max(A, B, C)
     if A==B==C:
         current=0
     elif A==B and A>C:
@@ -25,11 +26,11 @@ for c, s in status:
         current=2
     elif B==C and B>A:
         current=3
-    elif A==B and A<C:
+    elif (A==B and A<C) or (A<B<C) or (B<A<C):
         current=4
-    elif A==C and A<B:
+    elif (A==C and A<B) or (A<C<B) or (C<A<B):
         current=5
-    else:
+    elif (C==B and C<A) or (C<B<A) or (B<C<A):
         current=6
     
     if current!=before:
