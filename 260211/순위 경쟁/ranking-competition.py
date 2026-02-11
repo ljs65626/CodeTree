@@ -61,13 +61,13 @@ for c, s in status:
     if c=='A':
         if get_status(A, B, C) != get_status(A+s, B, C):
             ans+=1
-            A+=s
+        A+=s
     elif c=='B':
         if get_status(A, B, C) != get_status(A, B+s, C):
             ans+=1
-            B+=s
+        B+=s
     else:
         if get_status(A, B, C) != get_status(A, B, C+s):
             ans+=1
-            C+=s
+        C+=s
 print(ans)
