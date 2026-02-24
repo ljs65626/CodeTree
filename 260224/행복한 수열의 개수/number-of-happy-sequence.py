@@ -10,8 +10,9 @@ for nx in range(n):
             continuous+=1
         before = grid[nx][ny]
     
-    if continuous>=m:
-        ans+=1
+        if continuous>=m:
+            ans+=1
+            break
 
 
 for ny in range(n):
@@ -21,7 +22,9 @@ for ny in range(n):
         if grid[nx][ny]==before:
             continuous+=1
         before = grid[nx][ny]
-    if continuous>=m:
-        ans+=1
+
+        if continuous>=m:
+            ans+=1
+            break
     
 print(ans)
