@@ -14,6 +14,8 @@ for nx in range(n):
     for ny in range(1, n):
         if grid[nx][ny]==before:
             continuous+=1
+        else:
+            continuous=1
         before = grid[nx][ny]
     
         if continuous>=m:
@@ -27,6 +29,8 @@ for ny in range(n):
     for nx in range(1, n):
         if grid[nx][ny]==before:
             continuous+=1
+        else:
+            continuous=1
         before = grid[nx][ny]
 
         if continuous>=m:
