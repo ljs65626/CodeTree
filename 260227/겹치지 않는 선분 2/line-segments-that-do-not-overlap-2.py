@@ -5,11 +5,14 @@ lines = [tuple(map(int, input().split())) for _ in range(n)]
 cnt=0
 for i in range(n):
     base_x, base_y = lines[i]
+    is_straight=False
     for j in range(n):
         if i==j:
             continue
         x, y = lines[j]
         if (base_x<=x and y<=base_y) or (x<=base_x and base_y<=y):
-            cnt+=1
+            is_straight=True
+    if is_straight:
+        cnt+=1
     
 print(n-cnt)
