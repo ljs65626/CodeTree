@@ -18,10 +18,9 @@ def maremmo(k, i, j, square):
     return gold
 
 
-square=3
-k=1
+square=1
 ans=0
-while ((k**2 + (k+1)**2) <= n*n):
+for k in range(n+1):
     mining = (k**2) + ((k+1)**2)
     for i in range(n):
         for j in range(n):
@@ -29,7 +28,6 @@ while ((k**2 + (k+1)**2) <= n*n):
             price = gold_cnt*m
             if price>mining:
                 ans = max(ans, gold_cnt)
-    k+=1
     square+=2
 
 
