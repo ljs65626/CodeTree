@@ -22,7 +22,6 @@ square=1
 ans=0
 for k in range(n+1):
     mining = (k**2) + ((k+1)**2)
-    print(mining)
     for i in range(n):
         for j in range(n):
             gold_cnt = maremmo(k, i, j, square)
