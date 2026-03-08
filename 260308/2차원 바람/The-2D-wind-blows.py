@@ -45,8 +45,8 @@ def move(x1, y1, x2, y2):
     ##test##
 
     temp4 = a[x1][y1]
-    for i in range(x2-1, x1, -1):
-        a[i-1][y1] = a[i][y1]
+    for i in range(x1, x2-1):
+        a[i][y1] = a[i+1][y1]
     a[x2-1][y1] = temp3
 
 
