@@ -1,4 +1,4 @@
-import copy 
+import copy, sys
 n, m, q = map(int, input().split())
 
 # Create 2D array for building state
@@ -6,7 +6,8 @@ a = [list(map(int, input().split())) for _ in range(n)]
 
 # Process wind queries
 winds = [tuple(map(int, input().split())) for _ in range(q)]
-
+if q==0:
+    sys.exit(0)
 # Please write your code here.
 def move(x1, y1, x2, y2):
     temp1 = a[x1][y2]
