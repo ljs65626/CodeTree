@@ -8,6 +8,10 @@ a = [list(map(int, input().split())) for _ in range(n)]
 # Process wind queries
 winds = [tuple(map(int, input().split())) for _ in range(q)]
 if q==0:
+    for i in a:
+        for j in i:
+            print(j, end=' ')
+        print()
     sys.exit(0)
 # Please write your code here.
 def move(x1, y1, x2, y2):
