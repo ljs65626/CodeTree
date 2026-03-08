@@ -1,4 +1,5 @@
-import copy, sys
+import copy
+import sys
 n, m, q = map(int, input().split())
 
 # Create 2D array for building state
