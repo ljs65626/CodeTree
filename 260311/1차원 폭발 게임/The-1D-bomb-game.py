@@ -39,7 +39,8 @@ while True:
             ccnt=1
         if i==n-1:
             if ccnt<m:
-                tmp.append(num[i])
+                for j in range(ccnt):
+                    tmp.append(num[i])
         before=num[i]
     if n==len(tmp) or n==1:
         break
