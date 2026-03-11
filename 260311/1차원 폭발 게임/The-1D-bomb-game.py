@@ -1,6 +1,11 @@
 import copy
+import sys
 n, m = map(int, input().split())
 num = [int(input()) for _ in range(n)]
+
+if m==1:
+    print(0)
+    sys.exit()
 
 # Please write your code here.
 while True:
