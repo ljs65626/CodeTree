@@ -29,7 +29,8 @@ while True:
             ccnt+=1
         else:
             if ccnt<m:
-                tmp.append(before)
+                for j in range(ccnt):
+                    tmp.append(before)
             ccnt=1
         if i==n-1:
             if ccnt<m:
