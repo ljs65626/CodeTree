@@ -1,4 +1,5 @@
 n = int(input())
+
 ans=0
 # Please write your code here.
 
@@ -13,8 +14,10 @@ def beautiful_num(arr):
     two_check=False
     three_check=False
     four_check=False
+    leng = len(arr)
     for i, v in enumerate(arr):
         end = check(i, v, arr)
+        before=arr[i]
         if v==2 and two_check==False:
             if (end-i+1)%2==0:
                 two_check=True
@@ -30,6 +33,9 @@ def beautiful_num(arr):
                 four_check=True
             else:
                 return False
+        
+        if i==leng-1 and v!=1 and arr[i-1]!=arr[i]:
+            return False
     return True
 
 
