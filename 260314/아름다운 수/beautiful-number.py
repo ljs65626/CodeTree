@@ -15,22 +15,11 @@ def beautiful_num(arr):
     i=0
     while True:
         end = check(i, arr)
-        if arr[i]==2:
-            if (end-i+1)%2==0:
-                pass
-            else:
-                return False
-        elif arr[i]==3:
-            if (end-i+1)%3==0:
-                pass
-            else:
-                return False
-        elif arr[i]==4:
-            if (end-i+1)%4==0:
-                pass
-            else:
-                return False
-        
+        v=arr[i]
+        if (end-i+1)%v==0:
+            pass
+        else:
+            return False
         i=end+1
 
         if i>=leng:
