@@ -3,7 +3,7 @@ n = int(input())
 ans=0
 # Please write your code here.
 
-def check(start, value, arr):
+def check(start, arr):
     leng = len(arr)
     for i in range(start+1, leng):
         if arr[start]!=arr[i]:
@@ -11,31 +11,31 @@ def check(start, value, arr):
     return n-1
 
 def beautiful_num(arr):
-    two_check=False
-    three_check=False
-    four_check=False
     leng = len(arr)
-    for i, v in enumerate(arr):
-        end = check(i, v, arr)
-        before=arr[i]
-        if v==2 and two_check==False:
+    i=0
+    while True:
+        end = check(i, arr)
+        if arr[i]==2:
             if (end-i+1)%2==0:
-                two_check=True
+                pass
             else:
                 return False
-        elif v==3 and three_check==False:
+        elif arr[i]==3:
             if (end-i+1)%3==0:
-                three_check=True
+                pass
             else:
                 return False
-        elif v==4 and four_check==False:
+        elif arr[i]==4:
             if (end-i+1)%4==0:
-                four_check=True
+                pass
             else:
                 return False
         
-        if i==leng-1 and v!=1 and arr[i-1]!=arr[i]:
-            return False
+        i=end+1
+
+        if i>=leng:
+            break
+
     return True
 
 
