@@ -1,6 +1,7 @@
 import copy
 n = int(input())
 grid = [list(map(int, input().split())) for _ in range(n)]
+bombed = [[False for _ in range(n)] for _ in range(n)]
 cnt=0
 ans = 0
 arr=[]
@@ -16,52 +17,36 @@ def in_range(x, y):
     else:
         return False
 
+def reset():
+    for i in range(n):
+        for j in range(n):
+            bombed[i][j]=False       
+
 def howmany():
+    reset()
     arrow=0
     ccnt=0
-    temp = copy.deepcopy(grid)
+    bomb_shapes = [
+        [],
+        [[-2, 0], [-1, 0], [0, 0], [1, 0], [2, 0]],
+        [[-1, 0], [1, 0], [0, 0], [0, -1], [0, 1]],
+        [[-1, -1], [-1, 1], [0, 0], [1, -1], [1, 1]]
+    ]
     for i in range(n):
         for j in range(n):
             if grid[i][j]==1:
-                if arr[arrow]==1:
-                    nx = i
-                    ny = j
-                    for k in range(2):
-                        nx-=1
-                        if in_range(nx, ny) and temp[nx][ny]==0:
-                            ccnt+=1
-                            temp[nx][ny] = 1
-                    nx = i
-                    ny = j
-                    for k in range(2):
-                        nx+=1
-                        if in_range(nx, ny) and temp[nx][ny]==0:
-                            ccnt+=1
-                            temp[nx][ny] = 1
-                    ccnt+=1
-                    arrow+=1
-                elif arr[arrow]==2:
-                    dxs = [-1, 0, 1, 0]
-                    dys = [0, 1, 0, -1]
-                    n_dir = 0
-                    for k in range(4):
-                        if in_range(i+dxs[n_dir], j+dys[n_dir]) and temp[i+dxs[n_dir]][j+dys[n_dir]]==0:
-                            ccnt+=1
-                            temp[i+dxs[n_dir]][j+dys[n_dir]]=1
-                        n_dir+=1
-                    ccnt+=1
-                    arrow+=1
-                else:
-                    dxs = [-1, -1, 1, 1]
-                    dys = [-1, 1, 1, -1]
-                    n_dir=0
-                    for k in range(4):
-                        if in_range(i+dxs[n_dir], j+dys[n_dir]) and temp[i+dxs[n_dir]][j+dys[n_dir]]==0:
-                            ccnt+=1
-                            temp[i+dxs[n_dir]][j+dys[n_dir]]=1
-                        n_dir+=1
-                    ccnt+=1
-                    arrow+=1
+                for k in range(5):
+                    dx, dy = bomb_shapes[arr[arrow]][k]
+                    nx, ny = i+dx, j+dy
+                    if in_range(nx, ny):
+                        bombed[nx][ny]=True
+                arrow+=1
+    
+    for i in range(n):
+        for j in range(n):
+            if bombed[i][j]==True:
+                ccnt+=1
+                
     return ccnt
 
 
