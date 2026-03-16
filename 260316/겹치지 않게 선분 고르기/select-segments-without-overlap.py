@@ -1,5 +1,5 @@
 n = int(input())
-lines = [(0, 0)] + [tuple(map(int, input().split())) for _ in range(n)]
+lines = [tuple(map(int, input().split())) for _ in range(n)]
 whether = [0] * 1001
 global ans
 ans=0
@@ -12,10 +12,11 @@ def reset():
 
 def is_satisfied():
     reset()
-    for i in arr:
-        a, b = lines[i]
-        for j in range(a, b+1):
-            whether[j]+=1
+    for i in range(n):
+        if arr[i]==1:
+            a, b = lines[i]
+            for j in range(a, b+1):
+                whether[j]+=1
     
     for i in whether:
         if i>1:
@@ -26,13 +27,17 @@ def is_satisfied():
 def backtrack(curr_num):
     global ans
     if n+1==curr_num:
+        cnt=0
+        if is_satisfied()==True:
+            for j in arr:
+                if j==1:
+                    cnt+=1
+            ans = max(ans, cnt)
         return
     
-    for i in range(1, n+1):
+    for i in range(2):
         arr.append(i)
         backtrack(curr_num+1)
-        if is_satisfied()==True:
-            ans = max(ans, len(arr))
         arr.pop()
 
 
