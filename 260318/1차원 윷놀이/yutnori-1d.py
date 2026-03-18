@@ -5,15 +5,12 @@ ans=0
 # Please write your code here.
 curr_dist = [0] * k
 
-def reset():
-    for i in range(k):
-        curr_dist[i] = 0
+# def reset():
+#     for i in range(k):
+#         curr_dist[i] = 0
 
 
 def point():
-    reset()
-    for i in range(n):
-        curr_dist[arr[i]]+=nums[i]
     
     score=0
     for i in range(k):
@@ -25,17 +22,19 @@ def point():
 
 def backtrack(curr_num):
     global ans
-    if n+1==curr_num:
+    if n==curr_num:
         ans = max(point(), ans)
         return
     
 
     for i in range(k):
-        arr.append(i)
+        if curr_dist[i]>=m-1:
+            continue
+        curr_dist[i]+=nums[curr_num]
         backtrack(curr_num+1)
-        arr.pop()
+        curr_dist[i]-=nums[curr_num]
 
 
-backtrack(1)
+backtrack(0)
 
 print(ans)
