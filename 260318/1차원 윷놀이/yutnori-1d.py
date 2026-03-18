@@ -22,8 +22,8 @@ def point():
 
 def backtrack(curr_num):
     global ans
+    ans = max(point(), ans)
     if n==curr_num:
-        ans = max(point(), ans)
         return
     
 
