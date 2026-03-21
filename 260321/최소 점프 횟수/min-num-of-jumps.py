@@ -19,7 +19,7 @@ def backtrack(curr_loc):
         return
 
     for i in range(1, arr[-1]+1):
-        if curr_loc+i > n:
+        if curr_loc+i >= n:
             break
         arr.append(nums[curr_loc+i])
         backtrack(curr_loc+i)
