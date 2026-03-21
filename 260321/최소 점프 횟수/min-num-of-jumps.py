@@ -10,7 +10,7 @@ ans = sys.maxsize
 
 
 
-def backtrack(curr_num, curr_loc):
+def backtrack(curr_loc):
     global is_in
     global ans
     if curr_loc==n-1:
@@ -18,15 +18,15 @@ def backtrack(curr_num, curr_loc):
         ans = min(len(arr)-1, ans)
         return
 
-    for i in range(arr[-1]):
-        if curr_num+i > n:
+    for i in range(1, arr[-1]+1):
+        if curr_loc+i > n:
             break
-        arr.append(nums[curr_num+i])
-        backtrack(curr_num+1, curr_num+i)
+        arr.append(nums[curr_loc+i])
+        backtrack(curr_loc+i)
         arr.pop()
 
 
-backtrack(1, 0)
+backtrack(0)
 
 if is_in:
     print(ans)
