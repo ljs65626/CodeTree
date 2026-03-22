@@ -3,9 +3,8 @@ arr=[]
 nums = [i for i in range(1, N+1)]
 # Please write your code here.
 def print_answer():
-    for i in range(N):
-        if arr[i]==1:
-            print(nums[i], end=' ')
+    for i arr:
+        print(i, end=' ')
     print()
 
 
@@ -16,12 +15,12 @@ def backtrack(curr_num, cnt):
         return
     
     for i in range(1, -1, -1):
-        arr.append(i)
         if i==1:
+            arr.append(curr_num)
             backtrack(curr_num+1, cnt+1)
+            arr.pop()
         else:
             backtrack(curr_num+1, cnt)
-        arr.pop()
 
 
 backtrack(1, 0)
