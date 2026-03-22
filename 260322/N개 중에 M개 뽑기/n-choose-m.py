@@ -1,9 +1,9 @@
 N, M = map(int, input().split())
 arr=[]
-nums = [i for i in range(1, N+1)]
+# nums = [i for i in range(1, N+1)]
 # Please write your code here.
 def print_answer():
-    for i arr:
+    for i in arr:
         print(i, end=' ')
     print()
 
