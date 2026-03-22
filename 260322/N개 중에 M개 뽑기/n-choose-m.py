@@ -19,3 +19,4 @@ def backtrack(curr_num, cnt):
 
 
 backtrack(1, 1)
+
