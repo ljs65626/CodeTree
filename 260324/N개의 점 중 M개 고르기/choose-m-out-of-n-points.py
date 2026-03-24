@@ -34,4 +34,4 @@ def backtrack(curr_loc, cnt):
 
 
 backtrack(0, 0)
-print(int(ans**2))
+print(int((ans**2)+0.5))
