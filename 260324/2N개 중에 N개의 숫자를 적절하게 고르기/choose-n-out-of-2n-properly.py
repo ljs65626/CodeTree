@@ -7,17 +7,17 @@ ans = sys.maxsize
 def diff():
     sum_val1=0
     sum_val2=0
-    for i in range(n):
+    for i in range(2*n):
         if arr[i]==1:
-            sum_val1+=nums[i]
+            sum_val1+=(nums[i])
         else:
-            sum_val2+=nums[i]
+            sum_val2+=(nums[i])
         
-        return abs(sum_val1-sum_val2)
+    return abs(sum_val1-sum_val2)
 
 def backtrack(curr_loc, cnt):
     global ans
-    if curr_loc==2*n+1:
+    if curr_loc==(2*n)+1:
         if cnt==n:
             ans = min(diff(), ans)
         return
