@@ -6,9 +6,8 @@ ans = 0
 # Please write your code here.
 def func():
     sum_val=0
-    i=0
-    for j in arr:
-        sum_val += nums[i][j-1]
+    for i in range(n):
+        sum_val += nums[i][arr[i]-1]
         i+=1
     return sum_val
 
