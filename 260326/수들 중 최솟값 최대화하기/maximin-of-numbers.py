@@ -6,6 +6,9 @@ visited=[False]*n
 
 def backtrack(curr_loc, minnest):
     global ans
+    if minnest<ans:
+        return
+
     if curr_loc==n:
         ans = max(minnest, ans)
         return
