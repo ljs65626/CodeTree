@@ -33,7 +33,7 @@ def dfs(x, y, value):
             dfs(new_x, new_y, value)
 
 ans=0
-ans_cnt=3
+ans_cnt=0
 for i in range(n):
     for j in range(n):
         cnt=1
@@ -42,6 +42,8 @@ for i in range(n):
             dfs(i, j, grid[i][j])
         if cnt>=4:
             ans+=1
+            ans_cnt = max(cnt, ans_cnt)
+        else:
             ans_cnt = max(cnt, ans_cnt)
 
 print(ans, ans_cnt)
