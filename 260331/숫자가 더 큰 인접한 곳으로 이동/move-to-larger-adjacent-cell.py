@@ -14,20 +14,18 @@ def in_range(x, y):
 
 def simulate(x, y):
     is_moved = False
+    global r, c
     for dx, dy in zip(dxs, dys):
         new_x = x+dx
         new_y = y+dy
         if in_range(new_x, new_y) and grid[new_x][new_y] > grid[x][y]:
             is_moved = True
+            r, c = new_x, new_y
             break
-    if is_moved:
-        return new_x, new_y
-    else:
-        return x, y
+    return is_moved
 
 while True:
     print(grid[r][c], end=' ')
-    new_r, new_c = simulate(r, c)
-    if new_r==r and new_c==c:
+    # new_r, new_c = simulate(r, c)
+    if not simulate(r, c):
         break
-    r, c = new_r, new_c
