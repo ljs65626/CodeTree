@@ -1,33 +1,23 @@
 n = int(input())
-nums = [list(map(int, input().split())) for _ in range(n)] 
-arr=[]
-visited=[False]*(n+1)
-ans = 0
-# Please write your code here.
-def func():
-    sum_val=0
-    for i in range(n):
-        sum_val += nums[i][arr[i]-1]
-        i+=1
-    return sum_val
+grid = [list(map(int, input().split())) for _ in range(n)]
+visited = [False] * n
+ans=0
 
-
-def backtrack(curr_loc):
+def backtrack(curr_loc, sum_val):
     global ans
-    if curr_loc==n+1:
-        ans = max(ans, func())
+    if curr_loc==n:
+        ans = max(ans, sum_val)
         return
     
-
-    for i in range(1, n+1):
+    for i in range(n):
         if visited[i]==True:
             continue
         
+        sum_val+=grid[curr_loc][i]
         visited[i]=True
-        arr.append(i)
-        backtrack(curr_loc+1)
-        arr.pop()
+        backtrack(curr_loc+1, sum_val)
         visited[i]=False
+        sum_val-=grid[curr_loc][i]
 
-backtrack(1)
+backtrack(0, 0)
 print(ans)
