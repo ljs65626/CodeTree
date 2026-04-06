@@ -1,10 +1,6 @@
 from collections import deque
-import sys
 n = int(input())
 r1, c1, r2, c2 = map(int, input().split())
-if r1==r2 and c1==c2:
-    print(0)
-    sys.exit()
 visited = [[False for _ in range(n)] for _ in range(n)]
 score = [[0 for _ in range(n)] for _ in range(n)]
 q = deque()
@@ -42,7 +38,7 @@ def bfs():
 push(r1-1, c1-1, 0)
 bfs()
 
-if score[r2-1][c2-1]:
+if visited[r2-1][c2-1]==True:
     print(score[r2-1][c2-1])
 else:
     print(-1)
