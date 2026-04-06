@@ -1,6 +1,10 @@
 from collections import deque
+import sys
 n = int(input())
 r1, c1, r2, c2 = map(int, input().split())
+if r1==r2 and c1==c2:
+    print(0)
+    sys.exit()
 visited = [[False for _ in range(n)] for _ in range(n)]
 score = [[0 for _ in range(n)] for _ in range(n)]
 q = deque()
