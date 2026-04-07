@@ -10,16 +10,13 @@ dxs = [-1, 1, 0, 0]
 dys = [0, 0, -1, 1]
 
 def check():
-    min_val = sys.maxsize
     for i in range(n):
         for j in range(n):
-            if grid[i][j]==3 and visited[i][j]==True:
-                min_val = min(score[i][j], min_val)
-    
-    if min_val==sys.maxsize:
-        return -1
-    else:
-        return min_val
+            if grid[i][j]==2:
+                if visited[i][j]==True:
+                    ans[i][j] = score[i][j]
+                else:
+                    ans[i][j] = -1
 
 def push(x, y, v):
     visited[x][y] = True
@@ -41,11 +38,11 @@ def can_go(x, y):
         return False
     return True
 
-def reset():
-    for i in range(n):
-        for j in range(n):
-            visited[i][j] = False
-            score[i][j] = 0
+# def reset():
+#     for i in range(n):
+#         for j in range(n):
+#             visited[i][j] = False
+#             score[i][j] = 0
 
 def bfs():
     while q:
@@ -59,11 +56,11 @@ def bfs():
 
 for i in range(n):
     for j in range(n):
-        if grid[i][j]==2:
-            reset()
+        if grid[i][j]==3:
             push(i, j, 0)
-            bfs()
-            ans[i][j] = check()
+bfs()
+check()
+# ans[i][j] = check()
 
 
 for i in range(n):
