@@ -62,9 +62,10 @@ def backtracking(curr_loc, cnt):
             ans = max(bfs(), ans)
         return
     
-    arr.append(stone_pos[curr_loc])
-    backtracking(curr_loc+1, cnt+1)
-    arr.pop()
+    if cnt<k:
+        arr.append(stone_pos[curr_loc])
+        backtracking(curr_loc+1, cnt+1)
+        arr.pop()
 
     backtracking(curr_loc+1, cnt)
 
