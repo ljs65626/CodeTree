@@ -19,10 +19,10 @@ for i in range(1, n):
     for j in range(1, n):
         dp[i][j] = min(max(dp[i][j-1], dp[i-1][j]), grid[i][j])
 
-for i in range(n):
-    for j in range(n):
-        print(dp[i][j], end=' ')
-    print()
+# for i in range(n):
+#     for j in range(n):
+#         print(dp[i][j], end=' ')
+#     print()
 
 print(dp[n-1][n-1])
 
