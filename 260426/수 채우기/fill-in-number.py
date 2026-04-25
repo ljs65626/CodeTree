@@ -28,4 +28,7 @@ for i in range(0, 100_001):
             cnt = i+((n-(5*i))//2)
             ans = min(ans, cnt)
 
-print(ans)
+if ans==sys.maxsize:
+    print(-1)
+else:
+    print(ans)
