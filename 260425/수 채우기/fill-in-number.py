@@ -8,7 +8,7 @@ while n>0:
         cnt+=1
         n-=5
         break
-    if n-5>=2:
+    if (n-5)>3:
         cnt+=1
         n-=5
         continue
