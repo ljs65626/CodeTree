@@ -6,6 +6,7 @@ cnt=0
 while n>0:
     if n==5:
         cnt+=1
+        n-=5
         break
     if n-5>=2:
         cnt+=1
